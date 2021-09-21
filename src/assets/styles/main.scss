@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 14px;
+  line-height: 16px;
+  background-color: #282C34;
+}
+
+input {
+  outline:  none;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: white;
+}
+
+.container {
+  display: flex;
+  width: max-content;
+  overflow-x: scroll;
+  padding: 8px;
+}
+
+.card {
+  min-height: 10px;
+  width: 100%;
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  border-radius: 6px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  transition: all 0.3s;
+  justify-content: space-between;
+
+  &.title {
+    padding: 0 12px;
+    margin-bottom: 0;
+
+    .icon {
+      align-items: center;
+    }
+  }
+
+  >.options {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .inputs {
+      width: 90%;
+
+      button {
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        min-height: 24px;
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+      }
+
+      input {
+        height: 24px;
+        background: transparent;
+        border: none;
+        padding: 0;
+        color: rgb(213, 213, 213);
+        font-size: 18px;
+      }
+    }
+
+    .icon {
+      width: 10%;
+      display: flex;
+      justify-content: center;
+
+      .remove {
+        color: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  &-input {
+    height: 52px;
+    width: 272px;
+    cursor: pointer;
+    background: #282C34;
+    border: 1px solid #707b96;
+    color: #dadada;
+    font-size: 18px;
+
+    &::placeholder {
+      color: #4e5568;
+      font-size: 18px;
+    }
+
+    &:hover,
+    &:focus {
+      background: lighten($color: #282C34, $amount: 5);
+    }
+  }
+}
