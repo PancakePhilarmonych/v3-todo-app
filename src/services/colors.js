@@ -10,5 +10,5 @@ export default {
   purple: '#9b59b6',
   purple2: '#8e44ad',
   orange: '#e67e22',
-  orange2: '##d35400'
+  orange2: '#d35400'
 }

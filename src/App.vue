@@ -110,7 +110,7 @@ export default {
     },
 
     getRandomColor() {
-      return this.colors[this.colorsKeys[this.randomColorIndex()]]
+      return colors[this.colorsKeys[this.randomColorIndex()]]
     },
 
     setlistColorVariable(color) {
