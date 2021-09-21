@@ -45,15 +45,16 @@ export default {
     draggable: VueDraggableNext,
   },
 
+  mounted() {
+    this.lists = JSON.parse(localStorage.getItem('list')) || []
+  },
+
   data() {
     return {
       newListName: '',
       newTaskName: '',
 
-      lists: [
-        {name: 'Дом', tasks: [{name: 'Уборка'}, {name: 'Купить продукты'}], color: '#2980b9'},
-        {name: 'Работа', tasks: [{name: 'Уборка'}, {name: 'Купить продукты'}], color: '#27ae60'},
-      ],
+      lists: [],
     }
   },
 
@@ -120,22 +121,21 @@ export default {
     getGeneratedId() {
       return '_' + Math.random().toString(36).substr(2, 9);
     },
+  },
+
+  watch: {
+    lists: {
+      handler(val) {
+        localStorage.setItem('list', JSON.stringify(val))
+      },
+      deep: true
+    },
   }
 }
 </script>
 
 <style  lang="scss">
-.container {
-  > :last-child {
-    margin-left: 10px;
-  }
 
-  .ghost {
-    opacity: 0.5;
-    border: 1px dashed white;
-    background: transparent;
-  }
-}
 
 .cards > * {
   background: var(--list-color);
