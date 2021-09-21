@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  width: max-content;
+  overflow-x: scroll;
+  padding: 8px;
+
+  > :last-child {
+    margin-left: 10px;
+  }
+
+  .ghost {
+    opacity: 0.5;
+    border: 1px dashed white;
+    background: transparent;
+  }
+}

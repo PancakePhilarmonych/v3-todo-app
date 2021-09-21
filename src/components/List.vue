@@ -2,23 +2,7 @@
   <div class="list">
     <div class="card title">
       <div class="options">
-        <div class="inputs">
-          <button
-            :ref="`list-name-button-${list.name}`"
-            @click="showListInput(`${list.name}`)"
-          >
-            {{ listName }}
-          </button>
-
-          <input
-            class="hidden"
-            type="text"
-            :ref="`list-name-input-${list.name}`"
-            v-model="listName"
-            @blur="showListButton(`${list.name}`)"
-            @keyup.enter="showListButton(`${list.name}`)"
-          >
-        </div>
+        <item-name-input v-model="listName" />
 
         <div class="icon">
           <div
@@ -45,24 +29,7 @@
         :key="`${list.name}-${taskIndex}`"
       >
         <div class="options">
-          <div class="inputs">
-            <button
-              :ref="`task-button-${`${taskIndex}-${list.name}`}`"
-              @click="showInput(`${taskIndex}-${list.name}`)"
-            >
-              {{ task.name }}
-            </button>
-
-            <input
-              class="hidden"
-              :ref="`task-input-${`${taskIndex}-${list.name}`}`"
-              type="text"
-              v-model="task.name"
-              name="taskName"
-              @blur="showButton(`${taskIndex}-${list.name}`)"
-              @keyup.enter="showButton(`${taskIndex}-${list.name}`)"
-            >
-          </div>
+          <item-name-input v-model="task.name" />
 
           <div class="icon">
             <div
@@ -85,15 +52,17 @@
 </template>
 
 <script>
-import IconTrash from '@/components/IconTrash.vue'
 import { VueDraggableNext } from "vue-draggable-next";
+import IconTrash from '@/components/IconTrash.vue'
 import BaseInput from "@/components/BaseInput.vue";
+import ItemNameInput from '@/components/ItemNameInput.vue';
 
 export default {
   components: {
     draggable: VueDraggableNext,
     BaseInput,
-    IconTrash
+    IconTrash,
+    ItemNameInput
   },
 
   emits: [
@@ -137,30 +106,6 @@ export default {
 
     removeList() {
       this.$emit('removeList')
-    },
-
-    showInput(refName) {
-      this.$refs[`task-input-${refName}`].classList.remove('hidden')
-      this.$refs[`task-input-${refName}`].focus()
-
-      this.$refs[`task-button-${refName}`].classList.add('hidden')
-    },
-
-    showButton(refName) {
-      this.$refs[`task-input-${refName}`].classList.remove('hidden')
-      this.$refs[`task-button-${refName}`].classList.add('hidden')
-    },
-
-    showListInput(refName) {
-      this.$refs[`list-name-input-${refName}`].classList.remove('hidden')
-      this.$refs[`list-name-input-${refName}`].focus()
-
-      this.$refs[`list-name-button-${refName}`].classList.add('hidden')
-    },
-
-    showListButton(refName) {
-      this.$refs[`list-name-input-${refName}`].classList.remove('hidden')
-      this.$refs[`list-name-button-${refName}`].classList.add('hidden')
     },
 
     addNewTaskName() {
