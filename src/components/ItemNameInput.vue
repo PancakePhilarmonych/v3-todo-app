@@ -2,7 +2,7 @@
   <div class="inputs">
     <button
       ref="name-button"
-      @click="showListInput(`${value}`)"
+      @click="showListInput"
     >
       {{ value }}
     </button>
@@ -12,8 +12,8 @@
       type="text"
       ref="name-input"
       v-model="value"
-      @blur="showListButton(`${value}`)"
-      @keyup.enter="showListButton(`${value}`)"
+      @blur="showListButton"
+      @keyup.enter="showListButton"
     >
   </div>
 </template>
