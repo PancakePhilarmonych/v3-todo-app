@@ -135,7 +135,16 @@ export default {
 </script>
 
 <style  lang="scss">
+.cards {
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
+  overflow: scroll;
+  max-height: 65vh;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
 
 .cards > * {
   background: var(--list-color);
@@ -144,7 +153,10 @@ export default {
 
 .list-draggable {
   display: flex;
-  gap: 10px;
+
+  :not(:last-child) {
+    margin-right: 10px;
+  }
 }
 
 .hidden {
