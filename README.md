@@ -1,4 +1,4 @@
-# v3-todo-app
+# vue3-todo-app
 
 ## Project setup
 ```
