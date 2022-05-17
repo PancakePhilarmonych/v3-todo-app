@@ -90,6 +90,7 @@ export default {
       }
 
       if(this.lists.find(list => list.name === this.newListName)) {
+        alert('Already added')
         return
       }
 
@@ -141,6 +142,7 @@ export default {
   }
 
   overflow: scroll;
+  overflow-x: hidden;
   max-height: 65vh;
   margin-bottom: 10px;
   border-radius: 6px;
